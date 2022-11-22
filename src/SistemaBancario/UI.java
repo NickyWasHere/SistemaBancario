@@ -1,8 +1,9 @@
 package SistemaBancario;
 
 public class UI {
-
-	public static void menu() {
+	
+	public static void menu() {		
+		System.out.println();
 		System.out.println("Sistema Bancário");
 		System.out.println();
 		
@@ -16,12 +17,13 @@ public class UI {
 		System.out.println("8-Sair");
 		System.out.println();
 		
-		System.out.println("Digite sua resposta: ");
+		System.out.print("Digite sua resposta: ");
 		
 		
 	}
 	
-	public static void tipoCliente() {
+	public static void tipoCliente() {	
+		System.out.println();
 		System.out.println("Escolha um tipo de cliente para adicionar");
 		System.out.println();
 		
@@ -29,10 +31,11 @@ public class UI {
 		System.out.println("2-Pessoa Jurídica");
 		System.out.println();
 		
-		System.out.println("Digite sua resposta: ");
+		System.out.print("Digite sua resposta: ");
 	}
 	
 	public static void tipoSaldo() {
+		System.out.println();
 		System.out.println("Escolha uma opção");
 		System.out.println();
 		
@@ -40,10 +43,11 @@ public class UI {
 		System.out.println("2-Diminuir saldo");
 		System.out.println();
 		
-		System.out.println("Digite sua resposta: ");
+		System.out.print("Digite sua resposta: ");
 	}
 	
-	public static void tipoLimite() {
+	public static void tipoLimite() {	
+		System.out.println();
 		System.out.println("Escolha uma opção");
 		System.out.println();
 		
@@ -51,6 +55,6 @@ public class UI {
 		System.out.println("2-Diminuir limite");
 		System.out.println();
 		
-		System.out.println("Digite sua resposta: ");
+		System.out.print("Digite sua resposta: ");
 	}
 }

@@ -13,6 +13,21 @@ public class ClientePF extends Cliente {
 		this.nome = nome;
 		this.idade = idade;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Número da conta: " + this.getNumeroConta() + "\n");
+		sb.append("Agência: " + this.getAgencia() + "\n");
+		sb.append("Telefone: " + this.getTelefone() + "\n");
+		sb.append(String.format("Saldo: R$ %.2f%n", this.getSaldo()));
+		sb.append(String.format("Limite de cheque especial: %.2f%n", this.getLimiteCheque()));
+		sb.append("CPF: " + this.getCpf() + "\n");
+		sb.append("Nome: " + this.getNome() + "\n");
+		sb.append("Idade: " + this.getIdade() + "\n");
+		return sb.toString();
+	}
 
 	public String getCpf() {
 		return cpf;
@@ -32,20 +47,5 @@ public class ClientePF extends Cliente {
 
 	public void setIdade(int idade) {
 		this.idade = idade;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		
-		sb.append("Número da conta: " + this.getNumeroConta() + "\n");
-		sb.append("Agência: " + this.getAgencia() + "\n");
-		sb.append("Telefone: " + this.getTelefone() + "\n");
-		sb.append("Saldo: " + this.getSaldo());
-		sb.append("Limite de cheque especial: " + this.getLimiteCheque() + "\n");
-		sb.append("CPF: " + this.getCpf());
-		sb.append("Nome: " + this.getNome());
-		sb.append("Idade: " + this.getIdade());
-		return sb.toString();
 	}
 }

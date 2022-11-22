@@ -31,12 +31,13 @@ public class Main {
 				break;
 				
 			case 2:
-				System.out.println("Digite o número da conta do cliente: ");
+				System.out.print("Número da conta do cliente: ");
 				int numConta = sc.nextInt();
 				
 				int pos = getPosition(clientes, numConta);
 				
 				if (checkConta(clientes, numConta)) {
+					System.out.println();
 					System.out.println(clientes[pos]);
 					
 				}
@@ -44,19 +45,25 @@ public class Main {
 				break;
 				
 			case 3:
+				System.out.println("Clientes: ");
+				System.out.println();
+				
+				
 				for (Cliente cliente : clientes) {
-					System.out.println(cliente);
+					if (cliente!=null) {
+						System.out.println(cliente);
+					}
 				}
 				break;
 				
 			case 4:
-				System.out.println("Digite o número da conta de origem: ");
+				System.out.print("Número da conta de origem: ");
 				int origem = sc.nextInt();
 				
-				System.out.println("Digite o número da conta de destino: ");
+				System.out.print("Número da conta de destino: ");
 				int destino = sc.nextInt();
 				
-				System.out.println("Digite o valor a ser transferido");
+				System.out.print("Valor a ser transferido: ");
 				double valor = sc.nextDouble();
 				
 				int posOrigem = getPosition(clientes, origem);
@@ -76,12 +83,12 @@ public class Main {
 				UI.tipoSaldo();
 				resposta = sc.nextInt();
 				
-				System.out.println("Digite o número da conta do cliente: ");
+				System.out.print("Número da conta do cliente: ");
 				numConta = sc.nextInt();
 				
 				pos = getPosition(clientes, numConta);
 				
-				System.out.println("Valor: ");
+				System.out.print("Valor: ");
 				valor = sc.nextDouble();
 				
 				if (resposta==1 && checkConta(clientes, numConta)) {
@@ -95,12 +102,12 @@ public class Main {
 				UI.tipoLimite();
 				resposta = sc.nextInt();
 				
-				System.out.println("Digite o número da conta do cliente: ");
+				System.out.print("Número da conta do cliente: ");
 				numConta = sc.nextInt();
 				
 				pos = getPosition(clientes, numConta);
 				
-				System.out.println("Valor: ");
+				System.out.print("Valor: ");
 				valor = sc.nextDouble();
 				
 				if (resposta==1 && checkConta(clientes, numConta)) {
@@ -111,7 +118,7 @@ public class Main {
 				break;
 				
 			case 7:
-				System.out.println("Digite o número da conta: ");
+				System.out.print("Número da conta: ");
 				numConta = sc.nextInt();
 				
 				if (checkConta(clientes, numConta)) {
@@ -144,23 +151,23 @@ public class Main {
 		System.out.println("Cadastrar novo cliente");
 		System.out.println();
 		
-		System.out.println("Número da conta: ");
+		System.out.print("Número da conta: ");
 		int numeroConta = sc.nextInt();
-		System.out.println("Agência: ");
+		System.out.print("Agência: ");
 		String agencia = sc.next();
-		System.out.println("Telefone: ");
+		System.out.print("Telefone: ");
 		String telefone = sc.next();
-		System.out.println("Saldo: ");
+		System.out.print("Saldo: ");
 		double saldo = sc.nextDouble();
-		System.out.println("Limite de cheque especial: ");
+		System.out.print("Limite de cheque especial: ");
 		double limiteCheque = sc.nextDouble();
 		
 		if (tipo=="PF") {			
-			System.out.println("CPF: ");
+			System.out.print("CPF: ");
 			String cpf = sc.next();
-			System.out.println("Nome: ");
+			System.out.print("Nome: ");
 			String nome = sc.next();
-			System.out.println("Idade: ");
+			System.out.print("Idade: ");
 			int idade = sc.nextInt();
 			
 			clientes[pos] = new ClientePF(numeroConta, agencia, telefone, 
@@ -168,10 +175,10 @@ public class Main {
 			
 		} else if (tipo=="PJ") {
 			
-			System.out.println("CNPJ: ");
+			System.out.print("CNPJ: ");
 			String cnpj = sc.next();
 			
-			System.out.println("Nome dos sócios: ");
+			System.out.print("Nome dos sócios: ");
 			sc.nextLine();
 			String nomes = sc.nextLine();
 			String[] vect = nomes.split(" ");
@@ -181,9 +188,9 @@ public class Main {
 				socios[i] = new Socio(vect[i]);
 			}
 			
-			System.out.println("Razão social: ");
+			System.out.print("Razão social: ");
 			String razaoSocial = sc.next();
-			System.out.println("Nome fantasia: ");
+			System.out.print("Nome fantasia: ");
 			String nomeFantasia = sc.next();	
 			
 			clientes[pos] = new ClientePJ(numeroConta, agencia, telefone, 
@@ -207,7 +214,7 @@ public class Main {
 		System.out.println("Cliente removido");
 	}
 	
-	public static int getPosition(Cliente[] clientes, int numeroConta) {
+	private static int getPosition(Cliente[] clientes, int numeroConta) {
 		for (int i=0; i<clientes.length; i++) {
 			if (numeroConta==clientes[i].getNumeroConta()) {
 				return i;
@@ -217,7 +224,7 @@ public class Main {
 		return 0;
 	}
 	
-	public static boolean checkConta(Cliente[] clientes, int numeroConta) {
+	private static boolean checkConta(Cliente[] clientes, int numeroConta) {
 		for (int i=0; i<clientes.length; i++) {
 			if (clientes[i].getNumeroConta()==numeroConta) {
 				return true;
